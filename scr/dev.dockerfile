@@ -1,5 +1,6 @@
 FROM python:3.8 as builder
 WORKDIR /bot
+RUN apt install python3-pip
 RUN pip install pipenv && \
     pipenv install --system
 
