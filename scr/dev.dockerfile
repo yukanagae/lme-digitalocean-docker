@@ -1,10 +1,6 @@
 FROM python:3.10 as builder
 WORKDIR /bot
 
-COPY ./app/Pipfile ./app/Pipfile.lock /bot/
-RUN pip install pipenv && \
-    pipenv install --system
-
 FROM python:3.10-slim
 WORKDIR /bot
 RUN npm install -g n && \
