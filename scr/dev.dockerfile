@@ -4,8 +4,6 @@ WORKDIR /bot
 FROM python:3.10-slim
 WORKDIR /bot
 
-RUN npm install -g nodemon
-
 ENV PYTHONBUFFERED=1
 COPY --from=builder /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
 
