@@ -1,8 +1,7 @@
 FROM python:3.10 as builder
-WORKDIR /bot
+
 
 FROM python:3.10-slim
-WORKDIR /bot
 
 ENV PYTHONBUFFERED=1
 
