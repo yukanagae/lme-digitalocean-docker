@@ -1,0 +1,14 @@
+version: "3.8"
+services: 
+  dbot:
+    build:
+      context: ./src
+      dockerfile: dev.dockerfile
+    tty: true
+    working_dir: /bot/app
+    entrypoint: bash ./entrypoint.dev.sh
+    env_file: # この行と
+      - .env  # この行
+    volumes:
+      - ./src:/bot
+
