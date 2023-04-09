@@ -27,9 +27,9 @@ jobs:
         username: ${{ secrets.SSH_USERNAME }}
         key: ${{secrets.SSH_KEY}}
         port: ${{ secrets.PORT }}
-        context: /flask_project/lme-digitalocean-docker/src
-        dockerfile: /flask_project/lme-digitalocean-docker/scr/dev.dockerfile
+        context: /home/flask/flask_project/lme-digitalocean-docker/src
+        dockerfile: /home/flask/flask_project/lme-digitalocean-docker/scr/dev.dockerfile
         tty: true
-        working_dir: /flask_project/lme-digitalocean-docker/scr/app
-        entrypoint: bash /flask_project/lme-digitalocean-docker/scr/app/entrypoint.dev.sh
-        volumes: ./src:/bot
+        working_dir: /home/flask/flask_project/lme-digitalocean-docker/scr/app
+        entrypoint: bash /home/flask/flask_project/lme-digitalocean-docker/scr/app/entrypoint.dev.sh
+        volumes: /home/flask/flask_project/lme-digitalocean-docker/src:/bot
