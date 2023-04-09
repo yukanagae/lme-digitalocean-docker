@@ -19,7 +19,7 @@ jobs:
         script: |
           cd /home/flask/flask_project
           git clone git@github.com:yukanagae/lme-digitalocean-docker.git
-    - name: deploy
+    - name: deploy2
       uses: appleboy/ssh-action@v0.1.9
       with:
         host: ${{ secrets.SSH_HOST }}
