@@ -4,6 +4,8 @@ WORKDIR /bot
 FROM python:3.10-slim
 WORKDIR /bot
 
+RUN yum install npm
+RUN yum install pip
 RUN npm install -g nodemon
 
 ENV PYTHONBUFFERED=1
