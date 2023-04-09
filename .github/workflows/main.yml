@@ -10,22 +10,22 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: copy
-      uses: webfactory/ssh-agent@v0.7.0
+      uses: appleboy/ssh-action@v0.1.9
       with:
         host: ${{ secrets.SSH_HOST }}
         username: ${{ secrets.SSH_USERNAME }}
-        ssh-private-key: ${{secrets.SSH_KEY}}
+        key: ${{secrets.SSH_KEY}}
         port: ${{ secrets.PORT }}
         script: |
           cd home/flask/flask_project
           mkdir app
           git clone git@github.com:yukanagae/lme-digitalocean-docker.git
     - name: deploy
-      uses: webfactory/ssh-agent@v0.7.0
+      uses: appleboy/ssh-action@v0.1.9
       with:
         host: ${{ secrets.SSH_HOST }}
         username: ${{ secrets.SSH_USERNAME }}
-        ssh-private-key: ${{secrets.SSH_KEY}}
+        key: ${{secrets.SSH_KEY}}
         port: ${{ secrets.PORT }}
         context: /flask_project/lme-digitalocean-docker/src
         dockerfile: /flask_project/lme-digitalocean-docker/scr/dev.dockerfile
