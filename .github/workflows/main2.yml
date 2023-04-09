@@ -16,9 +16,9 @@ jobs:
         username: ${{ secrets.SSH_USERNAME }}
         key: ${{secrets.SSH_KEY}}
         port: ${{ secrets.PORT }}
-        context: ~/lme-digitalocean-docker/src
-        dockerfile: ~/lme-digitalocean-docker/scr/dev.dockerfile
+        context: /lme-digitalocean-docker/src
+        dockerfile: /lme-digitalocean-docker/scr/dev.dockerfile
         tty: true
-        working_dir: ~/lme-digitalocean-docker/scr/app
-        entrypoint: bash entrypoint.dev.sh
+        working_dir: /lme-digitalocean-docker/scr/app
+        entrypoint: bash /lme-digitalocean-docker/scr/app/entrypoint.dev.sh
         volumes: ./src:/bot
