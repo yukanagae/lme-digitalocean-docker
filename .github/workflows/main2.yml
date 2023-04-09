@@ -16,16 +16,9 @@ jobs:
         username: ${{ secrets.SSH_USERNAME }}
         key: ${{secrets.SSH_KEY}}
         port: ${{ secrets.PORT }}
-        context: /lme-digitalocean-docker/src
-        dockerfile: /lme-digitalocean-docker/scr/dev.dockerfile
-    - name: entry
-      uses: appleboy/ssh-action@v0.1.9
-      with:
-        host: ${{ secrets.SSH_HOST }}
-        username: ${{ secrets.SSH_USERNAME }}
-        key: ${{secrets.SSH_KEY}}
-        port: ${{ secrets.PORT }}
+        context: ~/lme-digitalocean-docker/src
+        dockerfile: ~/lme-digitalocean-docker/scr/dev.dockerfile
         tty: true
-        working_dir: /lme-digitalocean-docker/scr/app
-        entrypoint: bash ./entrypoint.dev.sh
+        working_dir: ~/lme-digitalocean-docker/scr/app
+        entrypoint: bash entrypoint.dev.sh
         volumes: ./src:/bot
