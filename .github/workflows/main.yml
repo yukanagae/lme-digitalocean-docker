@@ -17,7 +17,8 @@ jobs:
         key: ${{secrets.SSH_KEY}}
         port: ${{ secrets.PORT }}
         script: |
-          cd /home/flask/flask_project
+          mkdir app
+          cd app
           git clone git@github.com:yukanagae/lme-digitalocean-docker.git
     - name: deploy2
       uses: appleboy/ssh-action@v0.1.9
@@ -26,9 +27,9 @@ jobs:
         username: ${{ secrets.SSH_USERNAME }}
         key: ${{secrets.SSH_KEY}}
         port: ${{ secrets.PORT }}
-        context: /home/flask/flask_project/lme-digitalocean-docker/src
-        dockerfile: /home/flask/flask_project/lme-digitalocean-docker/scr/dev.dockerfile
+        context: /app/lme-digitalocean-docker/src
+        dockerfile: /app/lme-digitalocean-docker/scr/dev.dockerfile
         tty: true
-        working_dir: /home/flask/flask_project/lme-digitalocean-docker/scr/app
-        entrypoint: bash /home/flask/flask_project/lme-digitalocean-docker/scr/app/entrypoint.dev.sh
-        volumes: /home/flask/flask_project/lme-digitalocean-docker/src:/bot
+        working_dir: /app/lme-digitalocean-docker/scr/app
+        entrypoint: bash /app/lme-digitalocean-docker/scr/app/entrypoint.dev.sh
+        volumes: /app/lme-digitalocean-docker/src:/bot
