@@ -3,10 +3,7 @@ WORKDIR /bot
 
 FROM python:3.10-slim
 WORKDIR /bot
-RUN npm install -g n && \
-    n stable && \
-    yum purge -y nodejs npm && \
-    yum autoremove -y
+
 RUN npm install -g nodemon
 
 ENV PYTHONBUFFERED=1
