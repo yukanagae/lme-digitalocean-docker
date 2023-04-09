@@ -1,0 +1,13 @@
+pytest
+pytest-pep8
+pytest-cov
+pytest-aiohttp
+responses
+line-bot-sdk
+requests
+flask
+python-dotenv
+gunicorn==20.0.4
+faiss-cpu
+openai
+numpy
