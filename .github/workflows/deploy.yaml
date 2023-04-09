@@ -1,0 +1,33 @@
+name: Build and Deploy
+on:
+  push:
+    branches:
+      - yukanagae-patch-2
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+    - name: executing remote ssh commands using password
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USERNAME }}
+        key: ${{secrets.SSH_KEY}}
+        dockerfile: Dockerfile
+        script: |
+          cd /home/flask/flask_project
+          git clone git@github.com:yukanagae/lme-digitalocean-docker.git
+        context: .
+services: 
+  dbot:
+    build:
+      context: ./src
+      dockerfile: dev.dockerfile
+    tty: true
+    working_dir: /bot/app
+    entrypoint: bash ./entrypoint.dev.sh
+    env_file: # この行と
+      - .env  # この行
+    volumes:
+      - ./src:/bot
