@@ -22,3 +22,4 @@ jobs:
         entrypoint: bash /lme-digitalocean-docker/scr/app/entrypoint.sh
         working_dir: /lme-digitalocean-docker/scr/app
         volumes: ./src:/bot
+        run: docker build . --file scr/dev.dockerfile --tag my-image-name:$(date +%s)
