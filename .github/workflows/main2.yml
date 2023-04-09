@@ -20,5 +20,5 @@ jobs:
         dockerfile: /lme-digitalocean-docker/scr/dev.dockerfile
         tty: true
         working_dir: /lme-digitalocean-docker/scr/app
-        entrypoint: bash lme-digitalocean-docker/scr/app/entrypoint.dev.sh
-        volumes: /lme-digitalocean-docker/src:/bot
+        entrypoint: bash ./entrypoint.dev.sh
+        volumes: ./src:/bot
