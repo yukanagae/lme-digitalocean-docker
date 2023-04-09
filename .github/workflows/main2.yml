@@ -1,0 +1,24 @@
+name: Build and Deploy
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: deploy
+      uses: appleboy/ssh-action@v0.1.9
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USERNAME }}
+        key: ${{secrets.SSH_KEY}}
+        port: ${{ secrets.PORT }}
+        context: /lme-digitalocean-docker/src
+        dockerfile: /lme-digitalocean-docker/scr/dev.dockerfile
+        tty: true
+        working_dir: /lme-digitalocean-docker/scr/app
+        entrypoint: bash /lme-digitalocean-docker/scr/app/entrypoint.dev.sh
+        volumes: /lme-digitalocean-docker/src:/bot
