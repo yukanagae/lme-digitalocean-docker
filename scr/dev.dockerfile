@@ -1,6 +1,5 @@
 FROM python:3.8 as builder
 WORKDIR /bot
-RUN apt install pip
 RUN pip install pipenv && \
     pipenv install --system
 
