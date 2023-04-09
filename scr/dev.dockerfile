@@ -5,7 +5,6 @@ FROM python:3.10-slim
 WORKDIR /bot
 
 ENV PYTHONBUFFERED=1
-COPY --from=builder /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
 
 COPY . /bot
 
