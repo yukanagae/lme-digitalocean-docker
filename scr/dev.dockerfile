@@ -8,4 +8,3 @@ ENV PYTHONBUFFERED=1
 COPY . /bot
 
 RUN python -m pip install --upgrade pip
-RUN pip install -r /lme-digitalocean-docker/scr/requirements.txt
