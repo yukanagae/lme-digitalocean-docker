@@ -10,7 +10,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: copy
-      uses: appleboy/ssh-action@v0.1.2
+      uses: webfactory/ssh-agent@v0.7.0
       with:
         host: ${{ secrets.SSH_HOST }}
         username: ${{ secrets.SSH_USERNAME }}
@@ -21,7 +21,7 @@ jobs:
           mkdir app
           git clone git@github.com:yukanagae/lme-digitalocean-docker.git
     - name: deploy
-      uses: appleboy/ssh-action@master
+      uses: webfactory/ssh-agent@v0.7.0
       with:
         host: ${{ secrets.SSH_HOST }}
         username: ${{ secrets.SSH_USERNAME }}
