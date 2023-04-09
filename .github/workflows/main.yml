@@ -17,9 +17,9 @@ jobs:
         script: |
           cd /home/flask/flask_project
           git clone git@github.com:yukanagae/lme-digitalocean-docker.git
-        context: ./src
-        dockerfile: dev.dockerfile
+        context: /home/flask/flask_project/src
+        dockerfile: /home/flask/flask_project/scr/dev.dockerfile
         tty: true
-        working_dir: /bot/app
-        entrypoint: bash ./entrypoint.dev.sh
+        working_dir: /home/flask/flask_project/scr/app
+        entrypoint: bash /home/flask/flask_project/scr/app/entrypoint.dev.sh
         volumes: ./src:/bot
