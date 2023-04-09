@@ -8,6 +8,7 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v2
     - name: copy
       uses: appleboy/ssh-action@v0.1.2
       with:
