@@ -8,7 +8,7 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
-    - name: executing remote ssh commands using password
+    - name: copy
       uses: appleboy/ssh-action@master
       with:
         host: ${{ secrets.SSH_HOST }}
@@ -17,6 +17,12 @@ jobs:
         script: |
           cd flask_project
           git clone git@github.com:yukanagae/lme-digitalocean-docker.git
+    - name: deploy
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USERNAME }}
+        key: ${{secrets.SSH_KEY}}
         context: /flask_project/lme-digitalocean-docker/src
         dockerfile: /flask/flask_project/lme-digitalocean-docker/scr/dev.dockerfile
         tty: true
