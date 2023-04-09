@@ -17,8 +17,7 @@ jobs:
         key: ${{secrets.SSH_KEY}}
         port: ${{ secrets.PORT }}
         script: |
-          mkdir app
-          cd app
+          cd home
           git clone git@github.com:yukanagae/lme-digitalocean-docker.git
     - name: deploy2
       uses: appleboy/ssh-action@v0.1.9
